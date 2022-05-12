@@ -1,0 +1,120 @@
+[{
+    "img": "../../assets/Northanger_Abbey.jpg",
+    "title": "Northanger Abbey", 
+    "author": "Austen, Jane", 
+    "year_written": 1814, 
+    "edition": "Penguin", 
+    "price":  18,
+    "description": "Jane Austen’s first novel, Northanger Abbey—published posthumously in 1818—tells the story of Catherine Morland and her dangerously sweet nature, innocence, and sometime self-delusion. Though Austen’s fallible heroine is repeatedly drawn into scrapes while vacationing at Bath and during her subsequent visit to Northanger Abbey, Catherine eventually triumphs, blossoming into a discerning woman who learns truths about love, life, and the heady power of literature. The satirical Northanger Abbey pokes fun at the gothic novel while earnestly emphasizing caution to the female sex."
+},
+    {
+        "img": "../../assets/war-and-peace-34_resized.jpg",
+        "title": "War and Peace", 
+        "author": "Tolstoy, Leo", 
+        "year_written": 1865, 
+        "edition": "Penguin", 
+        "price":  25,
+        "description": "War and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment; Prince Andrei Bolkonsky, who leaves his family behind to fight in the war against Napoleon; and Natasha Rostov, the beautiful young daughter of a nobleman who intrigues both men. A s Napoleon’s army invades, Tolstoy brilliantly follows characters from diverse backgrounds—peasants and nobility, civilians and soldiers—as they struggle with the problems unique to their era, their history, and their culture. And as the novel progresses, these characters transcend their specificity, becoming some of the most moving—and human—figures in world literature."
+    },
+    
+    {
+        "img": "../../assets/mrs.-dallowayvirginia-woolfroman-905b_resixed.jpg",
+        "title": "Mrs. Dalloway", 
+        "author": "Woolf, Virginia", 
+        "year_written": 1925, 
+        "edition": "Harcourt Brace", 
+        "price":  25,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Anna Karenina", 
+        "author": "Tolstoy, Leo", 
+        "year_written": 1875, 
+        "edition": "Penguin", 
+        "price":  13.5,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "The Hours", 
+        "author": "Cunnningham, Michael", 
+        "year_written": 1999, 
+        "edition": "Harcourt Brace", 
+        "price":  12.35,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Huckleberry Finn", 
+        "author": "Twain, Mark", 
+        "year_written": 1865, 
+        "edition": "Penguin", 
+        "price":  5.76,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Bleak House", 
+        "author": "Dickens, Charles", 
+        "year_written": 1870, 
+        "edition": "Random House", 
+        "price":  5.75,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Tom Sawyer", 
+        "author": "Twain, Mark", 
+        "year_written": 1862, 
+        "edition": "Random House", 
+        "price":  7.75,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "A Room of One's Own", 
+        "author": "Woolf, Virginia", 
+        "year_written": 1922, 
+        "edition": "Penguin", 
+        "price":  29,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Harry Potter", 
+        "author": "Rowling, J.K.", 
+        "year_written": 2000, 
+        "edition": "Harcourt Brace", 
+        "price":  19.95,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "One Hundred Years of Solitude", 
+        "author": "Marquez", 
+        "year_written": 1967, 
+        "edition": "Harper  Perennial", 
+        "price":  14.00,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Hamlet, Prince of Denmark", 
+        "author": "Shakespeare", 
+        "year_written": 1603, 
+        "edition": "Signet  Classics", 
+        "price":  7.95,
+        "description": ""
+    },
+    {
+        "img": "../../assets/Northanger_Abbey.jpg",
+        "title": "Lord of the Rings", 
+        "author": "Tolkien, J.R.", 
+        "year_written": 1937, 
+        "edition": "Penguin", 
+        "price":  27.45,
+        "description": ""
+        }
+    ]
+
