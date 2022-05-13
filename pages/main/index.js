@@ -61,8 +61,9 @@ const struct = {
         struct.createImg('audiobooks-img', 'audiobooks-img', document.querySelector('.audiobooks'), '../../assets/icons8-headphones-64.png');
         document.querySelector('.audiobooks').innerHTML += 'AudioBooks';
         struct.createElement('div', 'contacts', 'contacts', document.querySelector('.header-blocks'));
-        struct.createImg('bag-icon', 'bag-icon', document.querySelector('.contacts'), '../../assets/icons8-bag-100.png');
-        
+        struct.createElement('a', 'bag-link', 'bag-link', document.querySelector('.contacts'));
+        document.querySelector('.bag-link').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/order/');
+        struct.createImg('bag-icon', 'bag-icon', document.querySelector('.bag-link'), '../../assets/icons8-bag-100 (1).png');
         struct.createImg('contacts-icon', 'contacts-icon', document.querySelector('.contacts'), '../../assets/icons8-whatsapp-50.png');
         struct.createImg('customer', 'customer', document.querySelector('.contacts'), '../../assets/icons8-customer-64.png');
         struct.createImg('settings', 'settings', document.querySelector('.contacts'), '../../assets/icons8-settings-50.png');

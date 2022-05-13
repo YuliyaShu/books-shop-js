@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books-shop</title>
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="fix">
+            <header class="header">
+                    <div class="header-blocks">
+                        <div class="div-books-logo">
+                            <a href="https://yuliyashu.github.io/books-shop-js/pages/main/">
+                                <img class="books-logo" src="../../assets/books.jpg" alt="books">
+                            </a>
+                        </div>
+                        
+                        <div class="contacts">
+                            <img src="../../assets/icons8-whatsapp-50.png" alt="contacts">
+                            <img src="../../assets/icons8-customer-64.png" alt="customer">
+                            <img src="../../assets/icons8-settings-50.png" alt="settings">
+                        </div>
+                </div>
+            </header>
+            <main class="main">
+                <div class="shelf">
+                <div class="books-audiobooks">
+                    <p class="audiobooks"><img src="../../assets/icons8-bag-100 (1).png" alt="audio">Please, fill a delivery form in English below<br>*mandatory fields</p>
+                </div>
+                <form action="" class="form">
+                    <div class="fields">
+                        <div class="column1">
+                            <label for="fname">Name*</label>
+                            <input type="text" id="fname" name="fname" minlength="4" title="not less than 4 symbols, strings only" pattern="[A-Za-z]+" required><br><br>
+                            
+                            <label for="lname">Surname*</label>
+                            <input type="text" id="lname" name="lname" minlength="5" title="not less than 5 symbols, strings only" pattern="[A-Za-z]+" required><br><br>
+                            
+                            <label for="date">Delivery date*</label>
+                            <input type="date" id="date" name="date" min="" required><br><br>
+                            
+                            <label for="street">Street*</label>
+                            <input type="text" id="street" name="street" title="not less than 5 symbols, numbers are allowed" pattern="[A-Za-z0-9]+" required><br><br>
+                        </div>
+    
+                        <div class="column2">
+                            <label for="house">House*</label>
+                            <input type="number" id="house" name="house" min="1" title="numbers only" required><br><br>
+                            
+                            <label for="flat">Flat number*</label>
+                            <input type="text" id="flat" name="flat" min="1" title="numbers only, the dash symbol is allowed" pattern="[0-9/]+" required><br><br>
+                            
+                            <p>Choose the payment type*</p>
+                            <div class="radio">
+                                <input type="radio" id="Cash" name="payment_type" value="Cash">
+                                <label class="form-radio" for="Cash"> Cash</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="Card" name="payment_type" value="Card">
+                            <label class="form-radio" for="Card"> Card</label>
+                            </div>
+                            <br><br>
+        
+                            <p>Choose 2 gifts</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="pack" name="pack" value="pack">
+                                    <label for="pack"> pack as a gift</label><br>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="postcard" name="postcard" value="postcard">
+                                    <label for="postcard"> add postcard</label><br>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="discount" name="discount" value="discount">
+                                    <label for="discount"> provide 2% discount to the next time</label><br>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="pen" name="pen" value="pen">
+                                    <label for="pen"> branded pen or pencil</label>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" value="Confirm">
+                </form>
+                </div>
+            </main>
+            <footer class="footer">
+                <div class="footer-blocks">
+                    <a href="https://dribbble.com/shots/16279204-Book-Web-Store-Concept" class="footer-links">Inspired by Nikitin's shot</a>
+                    <a href="https://github.com/YuliyaShu/books-shop" class="footer-links">YuliyaShu may 2022</a>
+                    <a href="https://rs.school/" class="footer-links">RSSchool</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
