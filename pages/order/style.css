@@ -155,7 +155,7 @@ p, h1, h2 {
     align-content: center;
     cursor: pointer;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 3%
 }
 
 .form {
@@ -195,6 +195,7 @@ p, h1, h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 30%;
 }
 
 input[type="radio"] {
@@ -214,7 +215,7 @@ input, input:active {
     cursor:auto;
     color: var(--main--dark);
     font-size: small;
-    padding: 5% 1%;
+    padding: 3% 1%;
     transition-duration: 0.5s;
 }
 
