@@ -107,6 +107,12 @@ const struct = {
     },
 
     createBookSetForBag(countItem) {
+        if (document.querySelectorAll('.book-set-bag').length == 5) {
+            document.querySelector('.space').innerHTML = 'your bag is full';
+            setTimeout(() => {
+                document.querySelector('.space').innerHTML = ''},
+                2000);
+        } else {
             fetch('../../pages/main/books.json')
             .then(response => {
                 return response.json();
@@ -115,6 +121,8 @@ const struct = {
                 struct.createElementPrepend('div', 'book-set-bag', 'book-set-bag', document.querySelector('.bag'));
                 const imgV = data[`${countItem}`].img;
                 struct.createImg(`book-bag-${countItem}`, `book-bag-${countItem}`, document.querySelectorAll('.book-set-bag')[0], imgV);
+                struct.createElement('div', 'cross', 'cross', document.querySelectorAll('.book-set-bag')[0]);
+                document.querySelectorAll('.cross')[0].innerHTML = 'x';
                 struct.createElement('div', 'about-book-bag', 'about-book-bag', document.querySelectorAll('.book-set-bag')[0]);
                 struct.createElement('p', 'title-bag', 'title-bag', document.querySelectorAll('.about-book-bag')[0]);
                 document.querySelectorAll('.title-bag')[0].innerHTML = data[`${countItem}`].title;
@@ -135,7 +143,22 @@ const struct = {
                     document.querySelector('.total-button-a').setAttribute('target', '_blank');
                 }
                 document.querySelector('.total').innerHTML = `Total:  $ ${struct.totalSum()}`;
+
+                for (let i = 0; i < document.querySelectorAll('.cross').length; i += 1) {
+                    document.querySelectorAll('.cross')[i].addEventListener('click', (e) => {
+                        e.target.parentElement.remove();
+                        document.querySelector('.total').innerHTML = `Total:  $ ${struct.totalSum()}`;
+                        if (document.querySelectorAll('.book-set-bag').length == 0) {
+                            document.querySelector('.sum').innerHTML = '';
+                            document.querySelector('.bag-text').innerHTML = 'your bag is here';
+                        }
+
+                    })
+                    
+                }
             });
+        }
+            
     },
 
     totalSum() {
@@ -148,11 +171,10 @@ const struct = {
         localStorage.setItem('sum', sumInBag);
         return sumInBag;
     },
-
-
-   
 };
 struct.createMainStructure();
+
+
 
 // DRAG AND DROP
 let draggedBook;

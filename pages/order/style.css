@@ -115,12 +115,15 @@ p, h1, h2 {
     background-color: var(--main--light);
 }
 
-.books-audiobooks img, .contacts img{
+.books-audiobooks img, .contacts img {
     margin-right: 5px;
-    cursor: pointer;
     width: 22px;
     height: 22px;
     padding: 2px;
+}
+
+.contacts img {
+    cursor: pointer;
 }
 
 .contacts {
@@ -153,7 +156,6 @@ p, h1, h2 {
     font-size: 12px;
     justify-content: center;
     align-content: center;
-    cursor: pointer;
     text-align: center;
     margin-bottom: 3%
 }
@@ -198,6 +200,13 @@ p, h1, h2 {
     width: 30%;
 }
 
+.fname, .lname, .date, .street, .house, .flat, .card-cash {
+    font-family: 'Montserrat';
+    font-size: 9px;
+    color: var(--main--gray);
+    text-align: start;
+}
+
 input[type="radio"] {
 	border-color: var(--main--light);
 }
@@ -206,7 +215,7 @@ input[type="radio"]:checked {
 	background-color: var(--main--light);
 }
 
-input, input:active {
+input, input:active, input:required {
     font-family: 'Montserrat';
     font-size: 12px;
     border: 1px solid var(--main--light);
@@ -224,10 +233,26 @@ input:focus-visible {
     outline-color: var(--main--light);
 }
 
-input[type="submit"] {
+input:valid {
+    background-color: rgb(242, 251, 241);
+    transition: 0.5s;
+}
+
+
+
+input:invalid {
+    border: 1px solid rgb(102, 16, 16);
+    transition: 0.5s;
+}
+
+
+
+
+input[type="submit"], input[type="submit"]:valid {
     background-color: var(--main--light);
     cursor: pointer;
     padding: 1% 5%;
+    
 }
 
 input[type="submit"]:hover {
@@ -235,6 +260,16 @@ input[type="submit"]:hover {
     opacity: 70%;
     transition-duration: 0.5s;
 }
+
+input[type="submit"]:disabled, input[type="submit"]:disabled:hover {
+    background-color: var(--main--gray);
+    cursor: auto;
+    padding: 1% 5%;
+    border: 1px solid var(--main--gray);
+    opacity: 50%;
+}
+
+
 
 
 /* FOOTER */

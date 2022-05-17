@@ -214,7 +214,7 @@ h1 {
     margin: 0% 0px;
     width: 15%;
     height: 100%;
-
+    position: relative;
 }
 
 .book-set-bag img {
@@ -363,7 +363,36 @@ h1 {
     color: var(--main--dark);
 }
 
+.space {
+    font-family: 'Montserrat';
+    font-size: xx-large;
+    color: var(--main--gray);
+    opacity: 0.5;
+}
 
+.cross {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-family: 'Montserrat';
+    color: var(--main--white);
+    font-size: 14px;
+    background-color: var(--main--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cross:hover {
+    width: 30px;
+    height: 30px;
+    transition: 0.5s;
+}
 
 
 
