@@ -208,10 +208,35 @@ h1 {
     width: 33%;
 }
 
+.book-set-bag {
+    display: flex;
+    flex-direction: row;
+    margin: 0% 0px;
+    width: 15%;
+    height: 100%;
+
+}
+
+.book-set-bag img {
+    width: auto;
+    cursor:default;
+    box-shadow: 8px 8px 5px 1px rgba(124, 80, 29, 0.2);
+    margin: 3% auto;
+}
+
+.about-book-bag {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .book-set img {
     width: 50%;
     height: 50%;
-    cursor: grab;
+    cursor:grab;
     box-shadow: 8px 8px 5px 1px rgba(124, 80, 29, 0.2);
 }
 
@@ -233,6 +258,16 @@ h1 {
     cursor: default;
 }
 
+.title-bag, .price-bag {
+    font-family: 'LibreCaslonText';
+    color: var(--main--dark);
+    font-weight: 700;
+    font-size:xx-small;
+    margin-bottom: 10px;
+    cursor: default;
+    margin-top: 5%;
+}
+
 .price {
     margin-bottom: 40px;
 }
@@ -241,6 +276,14 @@ h1 {
     font-family: 'Montserrat';
     color: var(--main--gray);
     font-size:x-small;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.author-bag {
+    font-family: 'Montserrat';
+    color: var(--main--gray);
+    font-size:xx-small;
     margin-bottom: 10px;
     cursor: default;
 }
@@ -258,7 +301,7 @@ h1 {
     color: var(--main--dark);
 }
 
-.add-to-bag {
+.add-to-bag, .total-button {
     border: 1px solid var(--main--light);
     border-radius: 10px;
     background-color: var(--main--white);
@@ -270,7 +313,7 @@ h1 {
     transition-duration: 0.5s;
 }
 
-.add-to-bag:hover {
+.add-to-bag:hover, .total-button:hover {
     background-color: var(--main--light);
 }
 
@@ -283,8 +326,10 @@ h1 {
     border: 1px dashed var(--main--light);
     border-radius: 10px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition-duration: 1s;
 }
 
 .bag-text {
@@ -293,6 +338,29 @@ h1 {
     opacity: 50%;
     font-size: large;
     cursor: default;
+}
+
+.sum {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 10px;
+}
+
+.total {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.total-button {
+    padding: 8px;
+    font-size: small;
+}
+
+.total-button-a {
+    text-decoration: none;
+    color: var(--main--dark);
 }
 
 

@@ -11,6 +11,12 @@ const struct = {
         name.classList.add(nameClass);
     },
 
+    createElementPrepend(element, name, nameClass, where) {
+        name = document.createElement(element);
+        where.prepend(name);
+        name.classList.add(nameClass);
+    },
+
     createImg(name, nameClass, where, src) {
         name = document.createElement('img');
         where.append(name);
@@ -25,10 +31,11 @@ const struct = {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             struct.createElement('div', 'book-set', 'book-set', document.querySelector('.book'));
             const imgV = data[`${count}`].img;
             struct.createImg(`book${count}`, `book${count}`, document.querySelectorAll('.book-set')[count], imgV);
+            document.querySelector(`.book${count}`).draggable="true";
+            document.querySelector(`.book${count}`).classList.add('bookImg');
             struct.createElement('div', 'about-book', 'about-book', document.querySelectorAll('.book-set')[count]);
             struct.createElement('p', 'title', 'title', document.querySelectorAll('.about-book')[count]);
             document.querySelectorAll('.title')[count].innerHTML = data[`${count}`].title;
@@ -41,9 +48,8 @@ const struct = {
             document.querySelectorAll('.show-more')[count].innerHTML = 'Show more';
             struct.createElement('button', 'add-to-bag', 'add-to-bag', document.querySelectorAll('.about-book')[count]);
             document.querySelectorAll('button')[count].innerHTML = 'Add to bag';
+            document.querySelectorAll('button')[count].addEventListener('click', () => struct.createBookSetForBag(count));
         });
-
-   
     },
 
     createMainStructure() {
@@ -78,7 +84,6 @@ const struct = {
         document.querySelector('.intro-text').innerHTML = 'A room without books is like a body without a soul';
         struct.createElement('div', 'book', 'book', document.querySelector('.shelf'));
         for (let i = 0; i < 3; i += 1) {
-            console.log(i);
             struct.createBookSet(i);
         }
         struct.createElement('div', 'space', 'space', document.querySelector('.main-blocks'));
@@ -99,15 +104,89 @@ const struct = {
         struct.createElement('a', 'footer-links', 'footer-links', document.querySelector('.footer-blocks'));
         document.querySelectorAll('.footer-links')[2].innerHTML = 'RSSchool';
         document.querySelectorAll('.footer-links')[2].setAttribute('href', 'https://rs.school/" class="footer-links');
+    },
 
-{/* <footer class="footer">
-                <div class="footer-blocks">
-                    <a href="https://dribbble.com/shots/16279204-Book-Web-Store-Concept" class="footer-links">Inspired by Nikitin's shot</a>
-                    <a href="https://github.com/YuliyaShu/books-shop" class="footer-links">YuliyaShu may 2022</a>
-                    <a href="https://rs.school/" class="footer-links">RSSchool</a>
-                </div>
-            </footer> */}
-    }
+    createBookSetForBag(countItem) {
+            fetch('../../pages/main/books.json')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                struct.createElementPrepend('div', 'book-set-bag', 'book-set-bag', document.querySelector('.bag'));
+                const imgV = data[`${countItem}`].img;
+                struct.createImg(`book-bag-${countItem}`, `book-bag-${countItem}`, document.querySelectorAll('.book-set-bag')[0], imgV);
+                struct.createElement('div', 'about-book-bag', 'about-book-bag', document.querySelectorAll('.book-set-bag')[0]);
+                struct.createElement('p', 'title-bag', 'title-bag', document.querySelectorAll('.about-book-bag')[0]);
+                document.querySelectorAll('.title-bag')[0].innerHTML = data[`${countItem}`].title;
+                struct.createElement('p', 'author-bag', 'author-bag', document.querySelectorAll('.about-book-bag')[0]);
+                document.querySelectorAll('.author-bag')[0].innerHTML = data[`${countItem}`].author;
+                struct.createElement('p', 'price-bag', 'price-bag', document.querySelectorAll('.about-book-bag')[0]);
+                document.querySelectorAll('.price-bag')[0].innerHTML = `$${data[`${countItem}`].price}`;
+
+                if (!document.querySelector('.bag-text').innerHTML == '') {
+                    console.log(document.querySelector('.bag-text'))
+                    document.querySelector('.bag-text').innerHTML = '';
+                    struct.createElement('div', 'sum', 'sum', document.querySelector('.bag'));
+                    struct.createElement('p', 'total', 'total', document.querySelector('.sum'));
+                    struct.createElement('button', 'total-button', 'total-button', document.querySelector('.sum'));
+                    struct.createElement('a', 'total-button-a', 'total-button-a', document.querySelector('.total-button'));
+                    document.querySelector('.total-button-a').innerHTML = 'Confirm order';
+                    document.querySelector('.total-button-a').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/order/');
+                    document.querySelector('.total-button-a').setAttribute('target', '_blank');
+                }
+                document.querySelector('.total').innerHTML = `Total:  $ ${struct.totalSum()}`;
+            });
+    },
+
+    totalSum() {
+        let sumInBag = 0;
+        const bag = document.querySelectorAll('.book-set-bag');
+        for (let i = 0; i < bag.length; i += 1) {
+            const x = document.querySelectorAll('.price-bag')[i].innerHTML.substring(1, document.querySelectorAll('.price-bag')[i].innerHTML.length);
+            sumInBag += +x;
+        }
+        localStorage.setItem('sum', sumInBag);
+        return sumInBag;
+    },
+
+
    
 };
 struct.createMainStructure();
+
+// DRAG AND DROP
+let draggedBook;
+document.addEventListener("drag", function( event ) {
+    draggedBook = event.target.alt[event.target.alt.length - 1];
+}, false);
+
+document.addEventListener("dragstart", function( event ) {
+    event.target.style.cursor = 'grabbing';
+}, false);
+
+document.addEventListener("dragend", function( event ) {
+    event.target.style.opacity = "";
+}, false);
+
+document.addEventListener("dragenter", function( event ) {
+    if ( event.target.className == "bag" ) {
+        event.target.style.background = "#f3e5d0";
+    }
+}, false);
+
+document.addEventListener("dragleave", function( event ) {
+    if ( event.target.className == "bag" ) {
+        event.target.style.background = "none";
+    }
+}, false);
+
+document.addEventListener("dragover", function( event ) {
+    event.preventDefault();
+}, false);
+
+document.addEventListener("drop", function( event ) {
+    if ( event.target.className == "bag") {
+            event.target.style.background = "none";
+            struct.createBookSetForBag(draggedBook);
+    }
+}, false);
