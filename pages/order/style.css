@@ -238,21 +238,15 @@ input:valid {
     transition: 0.5s;
 }
 
-
-
 input:invalid {
     border: 1px solid rgb(102, 16, 16);
     transition: 0.5s;
 }
 
-
-
-
 input[type="button"], input[type="button"]:valid {
     background-color: var(--main--light);
     cursor: pointer;
     padding: 1% 5%;
-    
 }
 
 input[type="button"]:hover {
@@ -268,7 +262,6 @@ input[type="button"]:disabled, input[type="button"]:disabled:hover {
     border: 1px solid var(--main--gray);
     opacity: 50%;
 }
-
 
 .main-sum {
     display: flex;

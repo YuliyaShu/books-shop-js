@@ -42,7 +42,6 @@ const obj = {
             } else {
                 document.getElementById("submit").disabled = true;
             }
-
         const pack =document.getElementById("pack");
         const postcard = document.getElementById("postcard");
         const discount = document.getElementById("discount");
@@ -105,8 +104,7 @@ const obj = {
         localStorage.setItem('postcard', document.getElementById("postcard").checked);
         localStorage.setItem('discount', document.getElementById("discount").checked);
         localStorage.setItem('pen', document.getElementById("pen").checked);
-        
-        
+
         document.body.removeEventListener('mousemove', obj.validity);
         const shelf = document.querySelector('.shelf');
         shelf.innerHTML = '';
@@ -125,7 +123,6 @@ const obj = {
         const pay = () => {
             return localStorage.getItem('payment') == 'true' ? 'card' : 'cash';
         }
-
         const gifts = () => {
             let result = '';
             if (localStorage.getItem('pack') == 'true') result += 'pack, ';
@@ -147,7 +144,6 @@ const obj = {
         aReturn.classList.add('linkReturn');
         aReturn.setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/main/');
         aReturn.innerHTML = 'Return to the main page';
-        
     }
 }
 document.getElementById('date').min = obj.todayIs();

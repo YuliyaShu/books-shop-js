@@ -73,11 +73,11 @@ const struct = {
         document.querySelector('.bag-link').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/order/');
         struct.createImg('bag-icon', 'bag-icon', document.querySelector('.bag-link'), '../../assets/icons8-bag-100(1).png');
         struct.createImg('contacts-icon', 'contacts-icon', document.querySelector('.contacts'), '../../assets/icons8-whatsapp-50.png');
-        document.querySelector('.contacts-icon').setAttribute('title', 'Coming soon')
+        document.querySelector('.contacts-icon').setAttribute('title', 'Coming soon');
         struct.createImg('customer', 'customer', document.querySelector('.contacts'), '../../assets/icons8-customer-64.png');
-        document.querySelector('.customer').setAttribute('title', 'Coming soon')
+        document.querySelector('.customer').setAttribute('title', 'Coming soon');
         struct.createImg('settings', 'settings', document.querySelector('.contacts'), '../../assets/icons8-settings-50.png');
-        document.querySelector('.settings').setAttribute('title', 'Coming soon')
+        document.querySelector('.settings').setAttribute('title', 'Coming soon');
 
         struct.createElement('main', 'main', 'main', document.querySelector('.fix'));
         struct.createElement('div', 'main-blocks', 'main-blocks', document.querySelector('.main'));
@@ -137,7 +137,6 @@ const struct = {
                 document.querySelectorAll('.price-bag')[0].innerHTML = `$${data[`${countItem}`].price}`;
 
                 if (!document.querySelector('.bag-text').innerHTML == '') {
-                    console.log(document.querySelector('.bag-text'))
                     document.querySelector('.bag-text').innerHTML = '';
                     struct.createElement('div', 'sum', 'sum', document.querySelector('.bag'));
                     struct.createElement('p', 'total', 'total', document.querySelector('.sum'));
@@ -282,7 +281,6 @@ document.addEventListener("dragend", function( event ) {
 }, false);
 
 document.addEventListener("dragenter", function( event ) {
-    console.log('here')
     if ( event.target.className == "bag" ) {
         event.target.style.background = "#f3e5d0";
     }
