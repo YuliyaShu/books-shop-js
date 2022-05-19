@@ -238,35 +238,61 @@ input:valid {
     transition: 0.5s;
 }
 
-
-
 input:invalid {
     border: 1px solid rgb(102, 16, 16);
     transition: 0.5s;
 }
 
-
-
-
-input[type="submit"], input[type="submit"]:valid {
+input[type="button"], input[type="button"]:valid {
     background-color: var(--main--light);
     cursor: pointer;
     padding: 1% 5%;
-    
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-color: var(--main--light);
     opacity: 70%;
     transition-duration: 0.5s;
 }
 
-input[type="submit"]:disabled, input[type="submit"]:disabled:hover {
+input[type="button"]:disabled, input[type="button"]:disabled:hover {
     background-color: var(--main--gray);
     cursor: auto;
     padding: 1% 5%;
     border: 1px solid var(--main--gray);
     opacity: 50%;
+}
+
+.main-sum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shelf-sum {
+    display: flex;
+    font-family: 'Montserrat';
+}
+
+.finalTextH1 {
+    font-size: x-large;
+    margin-bottom: 5%;
+    color: var(--main--light);
+}
+
+.finalText {
+    line-height: 1.5;
+    margin-bottom: 5%;
+}
+
+.linkReturn {
+    text-decoration: none;
+    color: var(--main--light);
+    cursor: pointer;
+}
+
+.linkReturn:hover {
+    color: var(--main--dark);
 }
 
 
