@@ -30,7 +30,7 @@
                 <div class="books-audiobooks">
                     <p class="audiobooks"><img src="../../assets/icons8-bag-100(1).png" alt="audio">Please, fill a delivery form in English below<br>*mandatory fields</p>
                 </div>
-                <form class="form">
+                <form class="form" enctype="multipart/form-data">
                     <div class="fields">
                         <div class="column1">
                             <label for="fname">Name*</label>
@@ -61,16 +61,16 @@
                             <br>
 
                             <label for="flat">Flat number*</label>
-                            <input type="text" id="flat" name="flat" title="numbers only, the dash symbol is allowed" pattern="[0-9/]+" required>
+                            <input type="text" id="flat" name="flat" title="numbers only, the dash symbol is allowed" pattern="(^[1-9]+)(\d*)(-?)([0-9]*$)" required>
                             <p class="flat"></p>
                             <br>
 
                             <p>Choose the payment type*</p>
-                            <div class="radio">
+                            <div class="radio" id="CashDiv">
                                 <input type="radio" id="Cash" name="payment_type" value="Cash" required>
                                 <label class="form-radio" for="Cash"> Cash</label>
                             </div>
-                            <div class="radio">
+                            <div class="radio" id="CardDiv">
                                 <input type="radio" id="Card" name="payment_type" value="Card">
                             <label class="form-radio" for="Card"> Card</label>
                             </div>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     
-                    <input id="submit" type="submit" value="" disabled>
+                    <input id="submit" type="button" value="" disabled>
                 </form>
                 </div>
             </main>
