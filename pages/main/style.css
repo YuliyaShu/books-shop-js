@@ -219,7 +219,6 @@ h1 {
 
 .book-set-bag img {
     width: auto;
-    cursor:default;
     box-shadow: 8px 8px 5px 1px rgba(124, 80, 29, 0.2);
     margin: 3% auto;
 }

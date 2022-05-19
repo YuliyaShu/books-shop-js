@@ -34,34 +34,34 @@
                     <div class="fields">
                         <div class="column1">
                             <label for="fname">Name*</label>
-                            <input type="text" id="fname" name="fname" minlength="4" title="not less than 4 symbols, strings only" pattern="[A-Za-z]+" required>
+                            <input type="text" id="fname" name="fname" minlength="4" title="not less than 4 symbols, strings only" pattern="[A-Za-z]+" autocomplete="off" required>
                             <p class="fname"></p>
                             <br>
                             
                             <label for="lname">Surname*</label>
-                            <input type="text" id="lname" name="lname" minlength="5" title="not less than 5 symbols, strings only" pattern="[A-Za-z]+" required>
+                            <input type="text" id="lname" name="lname" minlength="5" title="not less than 5 symbols, strings only" pattern="[A-Za-z]+" autocomplete="off" required>
                             <p class="lname"></p>
                             <br>
 
                             <label for="date">Delivery date*</label>
-                            <input type="date" id="date" name="date" required>
+                            <input type="date" id="date" name="date" autocomplete="off" required>
                             <p class="date"></p>
                             <br>
                             
                             <label for="street">Street*</label>
-                            <input type="text" id="street" name="street" title="not less than 5 symbols, numbers are allowed" pattern="[A-Za-z0-9]+" required>
+                            <input type="text" id="street" name="street" title="not less than 5 symbols, numbers are allowed" pattern="[A-Za-z0-9]+" autocomplete="off" required>
                             <p class="street"></p>
                             <br>
                         </div>
     
                         <div class="column2">
                             <label for="house">House*</label>
-                            <input type="number" id="house" name="house" min="1" title="numbers only" required>
+                            <input type="number" id="house" name="house" min="1" title="numbers only" autocomplete="off" required>
                             <p class="house"></p>
                             <br>
 
                             <label for="flat">Flat number*</label>
-                            <input type="text" id="flat" name="flat" title="numbers only, the dash symbol is allowed" pattern="(^[1-9]+)(\d*)(-?)([0-9]*$)" required>
+                            <input type="text" id="flat" name="flat" title="numbers only, the dash symbol is allowed" pattern="(^[1-9]+)(\d*)(-?)([0-9]*$)" autocomplete="off" required>
                             <p class="flat"></p>
                             <br>
 
