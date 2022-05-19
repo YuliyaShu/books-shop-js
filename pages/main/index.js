@@ -2,7 +2,7 @@ const struct = {
     createFirstWrapper() {
         const wrapper = document.createElement('div');
         document.body.prepend(wrapper);
-        wrapper.classList.add('wrapper');           
+        wrapper.classList.add('wrapper');
     },
 
     createElement(element, name, nameClass, where) {
@@ -46,6 +46,7 @@ const struct = {
             document.querySelectorAll('.price')[count].innerHTML = `$${data[`${count}`].price}`;
             struct.createElement('p', 'show-more', 'show-more', document.querySelectorAll('.about-book')[count]);
             document.querySelectorAll('.show-more')[count].innerHTML = 'Show more';
+            document.querySelectorAll('.show-more')[count].addEventListener('click', () => struct.createPopUp(count));
             struct.createElement('button', 'add-to-bag', 'add-to-bag', document.querySelectorAll('.about-book')[count]);
             document.querySelectorAll('button')[count].innerHTML = 'Add to bag';
             document.querySelectorAll('button')[count].addEventListener('click', () => struct.createBookSetForBag(count));
@@ -66,13 +67,17 @@ const struct = {
         struct.createElement('p', 'audiobooks', 'audiobooks', document.querySelector('.books-audiobooks'));
         struct.createImg('audiobooks-img', 'audiobooks-img', document.querySelector('.audiobooks'), '../../assets/icons8-headphones-64.png');
         document.querySelector('.audiobooks').innerHTML += 'AudioBooks';
+        document.querySelector('.audiobooks').setAttribute('title', 'Coming soon');
         struct.createElement('div', 'contacts', 'contacts', document.querySelector('.header-blocks'));
         struct.createElement('a', 'bag-link', 'bag-link', document.querySelector('.contacts'));
         document.querySelector('.bag-link').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/order/');
         struct.createImg('bag-icon', 'bag-icon', document.querySelector('.bag-link'), '../../assets/icons8-bag-100(1).png');
         struct.createImg('contacts-icon', 'contacts-icon', document.querySelector('.contacts'), '../../assets/icons8-whatsapp-50.png');
+        document.querySelector('.contacts-icon').setAttribute('title', 'Coming soon')
         struct.createImg('customer', 'customer', document.querySelector('.contacts'), '../../assets/icons8-customer-64.png');
+        document.querySelector('.customer').setAttribute('title', 'Coming soon')
         struct.createImg('settings', 'settings', document.querySelector('.contacts'), '../../assets/icons8-settings-50.png');
+        document.querySelector('.settings').setAttribute('title', 'Coming soon')
 
         struct.createElement('main', 'main', 'main', document.querySelector('.fix'));
         struct.createElement('div', 'main-blocks', 'main-blocks', document.querySelector('.main'));
@@ -152,13 +157,10 @@ const struct = {
                             document.querySelector('.sum').innerHTML = '';
                             document.querySelector('.bag-text').innerHTML = 'your bag is here';
                         }
-
                     })
-                    
                 }
             });
-        }
-            
+        } 
     },
 
     totalSum() {
@@ -170,6 +172,95 @@ const struct = {
         }
         localStorage.setItem('sum', sumInBag);
         return sumInBag;
+    },
+
+    createPopUp(count) {
+        const popup = document.createElement('div');
+        document.body.prepend(popup);
+        popup.classList.add('popup');
+
+        const closeForHover = document.createElement('div');
+        popup.append(closeForHover);
+        closeForHover.classList.add('closeForHover');
+
+        const emptyCell11 = document.createElement('div');
+        popup.append(emptyCell11);
+        emptyCell11.classList.add('emptyCell1');
+
+        const popupItems1 = document.createElement('div');
+        popup.append(popupItems1);
+        popupItems1.classList.add('popup-items');
+
+        const emptyCell22 = document.createElement('div');
+        popup.append(emptyCell22);
+        emptyCell22.classList.add('emptyCell2');
+        
+        const bodyPopup1 = document.createElement('div');
+        document.body.prepend(bodyPopup1);
+        bodyPopup1.classList.add('body-popup');
+
+        const bodyPopup = document.querySelector('.body-popup');
+        const popupVisible = document.querySelector('.popup');
+        document.querySelector('html').classList.add('open');
+        bodyPopup.classList.toggle('overlay-popup');
+        popupVisible.classList.toggle('popup-visible');
+        popupVisible.children[0].classList.toggle('close');
+        popupVisible.children[2].classList.toggle('pop-item');
+
+
+        fetch('../../pages/main/books.json')
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            struct.createElement('div', 'book-set-up', 'book-set-up', document.querySelector('.popup-items'));
+            const imgV = data[`${count}`].img;
+            struct.createImg('book-up', 'book-up', document.querySelector('.book-set-up'), imgV);
+            document.querySelector('.book-up').classList.add('bookImg');
+            struct.createElement('div', 'about-book-up', 'about-book-up', document.querySelector('.popup-items'));
+            struct.createElement('p', 'description', 'description', document.querySelector('.about-book-up'));
+            document.querySelector('.description').innerHTML = data[`${count}`].description;
+        });
+
+        // hover on close, when cursor on body-overlay
+        const closeHover = document.querySelector('.closeForHover');
+        const emptyCell1 = document.querySelector('.emptyCell1');
+        const emptyCell2 = document.querySelector('.emptyCell2');
+        // OVER
+        bodyPopup.onmouseover = function() {
+        closeHover.classList.toggle('hover');
+        }
+        emptyCell1.onmouseover = function() {
+        closeHover.classList.toggle('hover');
+        }
+        emptyCell2.onmouseover = function() {
+        closeHover.classList.toggle('hover');
+        }
+        // OUT
+        bodyPopup.onmouseout = function() {
+        closeHover.classList.toggle('hover');
+        }
+        emptyCell1.onmouseout = function() {
+        closeHover.classList.toggle('hover');
+        }
+        emptyCell2.onmouseout = function() {
+        closeHover.classList.toggle('hover');
+        }
+
+        // hide popup, when click on body-overlay
+        function bodyPopupOverlayHide() {
+        document.querySelector('html').classList.remove('open');
+        bodyPopup.classList.toggle('overlay-popup');
+        popupVisible.classList.toggle('popup-visible');
+        popupVisible.children[0].classList.toggle('close');
+        popupVisible.children[2].classList.toggle('pop-item');
+        popupVisible.children[0].innerHTML = '';
+        popupVisible.children[2].innerHTML = '';
+        }
+        bodyPopup.addEventListener('click', bodyPopupOverlayHide);
+        emptyCell1.addEventListener('click', bodyPopupOverlayHide);
+        emptyCell2.addEventListener('click', bodyPopupOverlayHide);
+        closeHover.addEventListener('click', bodyPopupOverlayHide);
     },
 };
 struct.createMainStructure();
@@ -191,6 +282,7 @@ document.addEventListener("dragend", function( event ) {
 }, false);
 
 document.addEventListener("dragenter", function( event ) {
+    console.log('here')
     if ( event.target.className == "bag" ) {
         event.target.style.background = "#f3e5d0";
     }
