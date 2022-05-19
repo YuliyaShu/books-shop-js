@@ -59,7 +59,9 @@ const struct = {
         struct.createElement('header', 'header', 'header', document.querySelector('.fix'));
         struct.createElement('div', 'header-blocks', 'header-blocks', document.querySelector('.header'));
         struct.createElement('div', 'div-books-logo', 'div-books-logo', document.querySelector('.header-blocks'));
-        struct.createImg('books-logo', 'books-logo', document.querySelector('.div-books-logo'), '../../assets/books.jpg');
+        struct.createElement('a', 'aLogo', 'aLogo', document.querySelector('.div-books-logo'));
+        document.querySelector('.aLogo').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/main/')
+        struct.createImg('books-logo', 'books-logo', document.querySelector('.aLogo'), '../../assets/books.jpg');
         struct.createElement('div', 'books-audiobooks', 'books-audiobooks', document.querySelector('.header-blocks'));
         struct.createElement('p', 'books', 'books', document.querySelector('.books-audiobooks'));
         struct.createImg('books-img', 'books-img', document.querySelector('.books'), '../../assets/icons8-books-64.png');
@@ -144,7 +146,6 @@ const struct = {
                     struct.createElement('a', 'total-button-a', 'total-button-a', document.querySelector('.total-button'));
                     document.querySelector('.total-button-a').innerHTML = 'Confirm order';
                     document.querySelector('.total-button-a').setAttribute('href', 'https://yuliyashu.github.io/books-shop-js/pages/order/');
-                    document.querySelector('.total-button-a').setAttribute('target', '_blank');
                 }
                 document.querySelector('.total').innerHTML = `Total:  $ ${struct.totalSum()}`;
 
